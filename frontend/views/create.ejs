@@ -1,0 +1,110 @@
+<html>
+
+<head>
+  <title>Create Chart</title>
+  <meta lang="el" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="/public/css/dashboard.css">
+  <link rel=" icon" type="image/png" href="/public/images/favicon.png">
+  <link rel="stylesheet" type="text/css" href="/public/css/create.css">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- Bootstrap Font Icon CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <script src="/public/scripts/create_head.js"></script>
+</head>
+
+<body>
+  <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Failure!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-text">You have no quotas left. Time to buy some!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary bg-navyblue" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="preview-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="preview-title">Success!</h5>
+        </div>
+        <div class="modal-body">
+          <p id="preview-text">Here's your chart preview:</p>
+          <img id="preview-image" src="/" alt="Chart Preview"/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="addPreview" class="btn btn-primary bg-navyblue" data-dismiss="modal" onclick="addChart()">Add to myCharts</button>
+          <button type="button" id="cancelPreview" class="btn btn-primary bg-navyblue" data-dismiss="modal" onclick="rejectChart()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <%- include('bars.ejs') -%>
+
+    <div class="container-fluid main">
+      <div class="container-form">
+        <form id="csvform">
+
+          <div class="input-group mb-3">
+            <select class="form-select" id="selector" aria-label="Default select example">
+              <option value="polar-area" selected>Polar area chart</option>
+              <option value="bubble">Bubble</option>
+              <option value="scatter">Scatter</option>
+
+            </select>
+            <button class="btn btn-outline-primary" type="button" onclick="downloadTemplate()">Get Template CSV</button>
+          </div>
+          <div class="input-group mb-3">
+
+
+            <button class="btn btn-outline-primary" id="selectBtn" type="button">Select file</button>
+            <input type="text" class="form-control" placeholder="filename" id="filetag" disabled>
+          </div>
+
+          <input id="file-input" type="file" title="PUT CSV HERE" accept=".csv"  style="display: none;">
+          <input type="reset" id="resetBtn" style="display: none;" />
+          <div id="dropArea">
+            <div class="drop-text h6">or drag and drop file here</div></input>
+          </div>
+        </form>
+        <div class="input-group mb-3">
+        <button class="btn btn-outline-primary" onclick="checkQuotasAndSubmit()">Generate Chart</button>
+        <button class="btn btn-outline-primary" id="resetProxy">Reset</button>
+</div>
+      </div>
+
+
+    </div>
+
+    <script src="/public/scripts/create_body.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

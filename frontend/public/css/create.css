@@ -1,0 +1,34 @@
+.container-form {
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 35px;
+    width: 50%;
+    box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-outline-primary {
+    color: rgb(2, 2, 56) !important;
+    border-color: rgb(2, 2, 56) !important;
+}
+.btn-outline-primary:hover {
+    background-color: rgb(2, 2, 56)!important;
+    color: aliceblue !important;
+    
+}
+
+#dropArea {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 200px;
+
+  }
+
+  #dropArea.highlight {
+    background-color: #e6e6e6;
+  }

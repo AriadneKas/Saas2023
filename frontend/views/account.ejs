@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Account</title>
+    <meta lang="el" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/public/css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/account.css">
+    <link rel=" icon" type="image/png" href="/public/images/favicon.png">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+</head>
+
+<body>
+    <%- include('bars.ejs') -%>
+    
+    <div class="container-fluid main">
+        <div class="container-form">
+            <div class="profile-pic-container">
+                <img src="<%= image %>"
+                class="rounded-circle" alt="User Image" width="80" height="80">
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td><p class="h6">name: </p><p class="h5"><%= name %></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="h6">surname: </p><p class="h5"><%= surname %></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="h6">email: </p><p class="h5"><%= email %></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="h6">Member since: </p><p class="h5"><%= createdAt %></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="h6">Quotas left: </p><p class="h5"><%= quotas %></p></td>
+                    </tr>
+                </table>
+            </div>
+
+           
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

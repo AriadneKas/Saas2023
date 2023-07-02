@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-navyblue">
+    <div class="container">
+      <a class="navbar-brand" href="#">myCharts</a>
+      
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto">
+          <p class="hi-name">Hi, <%= name %>!</p>
+          <li class="nav-item dropdown">
+              <img src="<%= image %>"
+                class="rounded-circle" alt="User Image" width="40" height="40">
+          </li>
+        </ul>
+    
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid no-padding">
+  <div class="sidebar">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/createChart">Create Chart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/buyquotas">Buy Quotas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/account">Account</a>
+      </li>
+    </ul>
+    <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
+
+  </div>

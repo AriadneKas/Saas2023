@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(-45deg, rgba(255,0,255,0.5),rgba(0,255,255,0.5) );
+}
+
+.central-container {
+    border-radius: 35px;
+    background-color: aliceblue;
+    padding: 30px;
+    min-height: 200px;
+    max-width: 600px;
+    box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button-container {
+    flex-direction: row;
+    display: flex;
+    margin-top: 20px;
+    width: 50%;
+    justify-content:space-between;
+}

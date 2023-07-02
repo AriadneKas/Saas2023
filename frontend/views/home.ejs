@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>myCharts | Home</title>
+    <meta lang="el" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/public/css/home.css">
+    <link rel=" icon" type="image/png" href="/public/images/favicon.png">
+    <link rel="script" type="text/javascript" href="/public/scripts/home.js"/>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+</head>
+
+<body>
+    <div class="central-container">
+        <div class="left-container">
+            <div class="left-button-group-div">
+                <button class="left-button-group" id="top-left-button">Login</button>
+                <button class="left-button-group">About</button>
+                <button class="left-button-group">Contact</button>
+
+            </div>
+            <div class="logo-and-button">
+
+                <div>
+                    <p class="logo-title h1">myCharts</p>
+                    <p class="logo-text h5">Creating amazing charts has never been easier! Sign up and receive 5 quotas for free!</p>
+                </div>
+                <div class="login-button">
+                    <p class="h6">Join the myCharts community!</p>
+                    <div id="g_id_onload"
+                        data-client_id="1088226481644-j4153fvd7dvok187pqa19ss0nkecvkbi.apps.googleusercontent.com"
+                        data-context="signin" data-ux_mode="redirect" data-login_uri="http://localhost/login/googleSSO"
+                        data-auto_prompt="true">
+                    </div>
+
+                    <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
+                        data-text="continue_with" data-size="large" data-logo_alignment="left">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-container" id="right-container">
+            <div class="carrousel-buttons">
+                <div class="carrousel-buttons left-arrow hoverfield">
+                    <button class="arrow" onclick="nextImage(-1)">
+
+                        <i class="bi bi-caret-left fs-1"></i></button>
+                </div>
+                <div class="carrousel-buttons right-arrow hoverfield">
+                    <button class="arrow" onclick="nextImage(1)"><i class="bi bi-caret-right fs-1"></i></button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="/public/scripts/home.js"></script>
+
+</body>
+
+</html>

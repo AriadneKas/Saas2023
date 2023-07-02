@@ -1,0 +1,120 @@
+<html>
+
+<head>
+  <title>Dashboard</title>
+  <meta lang="el" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="/public/css/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/table.css">
+  <link rel=" icon" type="image/png" href="/public/images/favicon.png">
+
+  <script src="/public/scripts/dashboard.js"></script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+
+  <!-- Bootstrap Font Icon CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <div id="imageModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Chart Preview</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="/" id="toShow" class="img-fluid" alt="Image">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary bg-navyblue" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('bars.ejs') -%>
+    <div class="container-fluid main-table">
+      <% if(charts.length> 0) { %>
+        <div class="table-container">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th class="table-top-left">a/a</th>
+                  <th>Chart ID</th>
+                  <th>Chart Type</th>
+                  <th>Created at</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <% charts.forEach( (chart, i)=> { %>
+                  <tr>
+                    <td class="text index">
+                      <%= i+1 %>
+                    </td>
+                    <td class="text">
+                      <%= chart.chartId %>
+                    </td>
+                    <td class="text">
+                      <%= chart.type %>
+                    </td>
+                    <td class="text">
+                      <%= chart.createdAt %>
+                    </td>
+                    <td><img ondblclick="showImg(this)" class="chart" src="<%= chart.thumbnail %>" width="120px"
+                        height="80px" alt="Image"></td>
+                    <td>
+                      <div class="button-container">
+                        <button onclick="downloadChart('svg', this)" data-chartId="<%= chart.chartId %>"
+                          data-type="<%= chart.type %>">SVG</button>
+                        <button onclick="downloadChart('html', this)" data-chartId="<%= chart.chartId %>"
+                          data-type="<%= chart.type %>">HTML</button>
+                        <button onclick="downloadChart('jpg', this)" data-chartId="<%= chart.chartId %>"
+                          data-type="<%= chart.type %>">JPG</button>
+                        <button onclick="downloadChart('pdf', this)" data-chartId="<%= chart.chartId %>"
+                          data-type="<%= chart.type %>">PDF</button>
+                      </div>
+                    </td>
+                    <td><button class="delete" onclick="deleteChart(this)" data-chartId="<%= chart.chartId %>">
+                        <i class="bi bi-file-earmark-x fs-1"></i></button></td>
+                  </tr>
+                  <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      
+          <%} else { %>
+
+            <p class="h5">You have no charts, go create some now!</p>
+
+            <% } %>
+          </div>
+
+
+   
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
