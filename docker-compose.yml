@@ -1,0 +1,85 @@
+services:
+  users:
+    build:
+      context: ./user-management
+      dockerfile: Dockerfile
+    ports:
+      - '9001:9001'
+    networks:
+      - hidden
+    depends_on:
+      - mongo
+    environment:
+      - DB_HOST=mongo
+      - HOST=host.docker.internal
+      - DB_PORT=27017
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    networks:
+      - hidden
+    depends_on:
+      - quotas
+      - database
+      - users
+    environment:
+      - DB_HOST=mongo
+      - HOST=host.docker.internal
+      - DB_PORT=27017
+  
+  polar-area:
+    build:
+      context: ./polar-area-ms
+      dockerfile: Dockerfile
+    ports:
+      - '9004:9004'
+    networks:
+      - hidden
+    environment:
+      - DB_HOST=mongo
+      - HOST=host.docker.internal
+      - DB_PORT=27017
+  
+  quotas:
+    build:
+      context: ./quotas-management
+      dockerfile: Dockerfile
+    ports:
+      - '9002:9002'
+    networks:
+      - hidden
+    depends_on:
+      - mongo
+    environment:
+      - DB_HOST=mongo
+      - HOST=host.docker.internal
+      - DB_PORT=27017
+  
+  database:
+    build:
+      context: ./database-ms
+      dockerfile: Dockerfile
+    ports:
+      - '9003:9003'
+    networks:
+      - hidden
+    depends_on:
+      - mongo
+    environment:
+      - DB_HOST=mongo
+      - HOST=host.docker.internal
+      - DB_PORT=27017
+
+  mongo:
+    image: mongo
+    networks:
+      - hidden
+    ports:
+      - '27018:27017'
+
+networks:
+  hidden:

@@ -1,0 +1,51 @@
+version: '3'
+services:
+  users:
+    build:
+      context: ./user-management
+      dockerfile: Dockerfile
+    networks:
+      - hidden
+    depends_on:
+      - mongo
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    networks:
+      - hidden
+    depends_on:
+      - quotas
+      - database
+      - users
+  
+  quotas:
+    build:
+      context: ./quotas-management
+      dockerfile: Dockerfile
+    networks:
+      - hidden
+    depends_on:
+      - mongo
+
+  database:
+    build:
+      context: ./database-ms
+      dockerfile: Dockerfile
+    ports:
+      - '9004:9004'
+    networks:
+      - hidden
+
+  mongo:
+    image: mongo
+    networks:
+      - hidden
+    ports:
+      - '27018:27017'
+
+networks:
+  hidden:
